@@ -14,6 +14,7 @@ import commonStore from "./stores/commonStore";
 import editorStore from "./stores/editorStore";
 import userStore from "./stores/userStore";
 import profileStore from "./stores/profileStore";
+import vampiresStore from "./stores/vampiresStore";
 
 const stores = {
   articlesStore,
@@ -22,7 +23,8 @@ const stores = {
   commonStore,
   editorStore,
   userStore,
-  profileStore
+  profileStore,
+  vampiresStore
 };
 
 // For easier debugging

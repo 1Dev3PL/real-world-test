@@ -11,6 +11,7 @@ import Article from "pages/Article";
 import Editor from "pages/Editor";
 import Profile from "pages/Profile";
 import Settings from "pages/Settings";
+import Vampires from "./pages/Vampires/Vampires";
 
 @inject("userStore", "commonStore")
 @withRouter
@@ -36,6 +37,7 @@ export default class App extends React.Component {
         <div>
           <Header />
           <Switch>
+            <Route path="/vampires" component={Vampires} />
             <Route path="/login" component={Login} />
             <Route path="/register" component={Register} />
             <Route path="/editor/:slug?" component={Editor} />

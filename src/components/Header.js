@@ -1,11 +1,17 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { inject, observer } from 'mobx-react';
+import {Link} from 'react-router-dom';
+import {inject, observer} from 'mobx-react';
 
 const LoggedOutView = props => {
   if (!props.currentUser) {
     return (
       <ul className="nav navbar-nav pull-xs-right">
+
+        <li className="nav-item">
+          <Link to="/vampires" className="nav-link">
+            Vampires
+          </Link>
+        </li>
 
         <li className="nav-item">
           <Link to="/" className="nav-link">
@@ -37,6 +43,12 @@ const LoggedInView = props => {
       <ul className="nav navbar-nav pull-xs-right">
 
         <li className="nav-item">
+          <Link to="/vampires" className="nav-link">
+            Vampires
+          </Link>
+        </li>
+        
+        <li className="nav-item">
           <Link to="/" className="nav-link">
             Home
           </Link>
@@ -44,13 +56,13 @@ const LoggedInView = props => {
 
         <li className="nav-item">
           <Link to="/editor" className="nav-link">
-            <i className="ion-compose" />&nbsp;New Post
+            <i className="ion-compose"/>&nbsp;New Post
           </Link>
         </li>
 
         <li className="nav-item">
           <Link to="/settings" className="nav-link">
-            <i className="ion-gear-a" />&nbsp;Settings
+            <i className="ion-gear-a"/>&nbsp;Settings
           </Link>
         </li>
 
@@ -59,7 +71,7 @@ const LoggedInView = props => {
             to={`/@${props.currentUser.username}`}
             className="nav-link"
           >
-            <img src={props.currentUser.image} className="user-pic" alt="" />
+            <img src={props.currentUser.image} className="user-pic" alt=""/>
             {props.currentUser.username}
           </Link>
         </li>
@@ -83,9 +95,9 @@ class Header extends React.Component {
             {this.props.commonStore.appName.toLowerCase()}
           </Link>
 
-          <LoggedOutView currentUser={this.props.userStore.currentUser} />
+          <LoggedOutView currentUser={this.props.userStore.currentUser}/>
 
-          <LoggedInView currentUser={this.props.userStore.currentUser} />
+          <LoggedInView currentUser={this.props.userStore.currentUser}/>
         </div>
       </nav>
     );
