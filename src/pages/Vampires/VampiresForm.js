@@ -1,6 +1,5 @@
 import React from "react";
 import {observer} from "mobx-react";
-import Popup from 'reactjs-popup';
 import VampiresPageStyle from "./VampiresPageStyle.css"
 
 export const VampiresForm = observer((props) => {
