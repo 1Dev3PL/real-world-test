@@ -4,6 +4,7 @@ import {withRouter} from "react-router-dom";
 import VampiresPageStyle from "./VampiresPageStyle.css"
 import {VampiresTable} from "./VampiresTable";
 import {VampiresForm} from "./VampiresForm";
+import Popup from "reactjs-popup";
 
 @inject("vampiresStore")
 @withRouter
@@ -32,6 +33,11 @@ export default class Vampires extends React.Component {
     this.props.vampiresStore.addVampire();
   };
 
+  handleDeleteVampire = (id) => {
+    this.props.vampiresStore.deleteVampire(id);
+    this.props.vampiresStore.sortVampires();
+  }
+
   render() {
     const {
       sortBy,
@@ -46,15 +52,24 @@ export default class Vampires extends React.Component {
           sortedVampires={sortedVampires}
           sortBy={sortBy}
           handleSortBy={this.handleSortBy}
+          handleDeleteVampire={this.handleDeleteVampire}
         />
-        <VampiresForm
-          formValues={formValues}
-          validationMessages={validationMessages}
-          handleNameChange={this.handleNameChange}
-          handlePowerChange={this.handlePowerChange}
-          handleAgeChange={this.handleAgeChange}
-          handleAddVampire={this.handleAddVampire}
-        />
+        <Popup
+          className="vampires-form-popup"
+          trigger={<button className="btn btn-lg btn-primary pull-xs-right">Add vampire</button>}
+          overlayStyle={{backgroundColor: 'rgba(0,0,0,.5)'}}
+          modal
+          nested
+        >
+          <VampiresForm
+            formValues={formValues}
+            validationMessages={validationMessages}
+            handleNameChange={this.handleNameChange}
+            handlePowerChange={this.handlePowerChange}
+            handleAgeChange={this.handleAgeChange}
+            handleAddVampire={this.handleAddVampire}
+          />
+        </Popup>
       </div>
     )
   }

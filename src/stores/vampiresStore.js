@@ -112,6 +112,10 @@ class VampiresStore {
     }
   }
 
+  @action deleteVampire(id) {
+    this.vampires = this.vampires.filter((el) => el.id !== id);
+  }
+
   @action clearForm() {
     this.formValues.name = '';
     this.formValues.superPower = '';

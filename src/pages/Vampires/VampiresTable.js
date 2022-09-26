@@ -1,6 +1,7 @@
 import React from "react";
 import {observer} from "mobx-react";
 import {SortButton} from "./SortButton";
+import {DeleteButton} from "./DeleteButton";
 
 export const VampiresTable = observer((props) => {
   return (
@@ -31,7 +32,10 @@ export const VampiresTable = observer((props) => {
             <tr className="table-row" key={el.id}>
               <td className="table-element">{el.name}</td>
               <td className="table-element">{el.superPower}</td>
-              <td className="table-element">{el.age}</td>
+              <td className="table-element">
+                {el.age}
+                <DeleteButton id={el.id} handleDeleteVampire={props.handleDeleteVampire}/>
+              </td>
             </tr>
           )
         })}

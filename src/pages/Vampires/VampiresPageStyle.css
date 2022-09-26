@@ -23,8 +23,25 @@
 
 }
 
+.deleteVampireButton {
+    display: inline;
+    float: right;
+    margin-right: 10px;
+}
+
 .vampires-form {
+    color: white;
+    border: green solid 1px;
+    border-radius: 10px;
     width: 500px;
+    background-color: #5cb85c;
+    padding: 10px;
+}
+
+.vampires-form-popup {
+    width: 500px;
+    position: absolute;
+    margin: auto;
 }
 
 .errorMessage {
